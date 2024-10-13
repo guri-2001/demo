@@ -27,7 +27,7 @@ const ImageUpload = () => {
         formData.append('image', image);
 
         try {
-            const response = await axios.post('http://localhost:5000/api/images/upload', formData, {
+            const response = await axios.post('https://demo-xcju.onrender.com/api/images/upload', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -48,7 +48,7 @@ const ImageUpload = () => {
         formData.append('image', imageUpdateImage);
 
         try {
-            await axios.put(`http://localhost:5000/api/images/update/${id}`, formData, {
+            await axios.put(`https://demo-xcju.onrender.com/api/images/update/${id}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },
@@ -62,7 +62,7 @@ const ImageUpload = () => {
     useEffect(() => {
         const fetchImages = async () => {
             try {
-                const response = await axios.get('http://localhost:5000/api/images');
+                const response = await axios.get('https://demo-xcju.onrender.com/api/images');
                 setData(response.data);
             } catch (error) {
                 console.error('Error fetching images:', error);
@@ -73,7 +73,7 @@ const ImageUpload = () => {
 
     const hanleShow = async (id) => {
         try {
-            const response = await axios.get(`http://localhost:5000/api/images/${id}`);
+            const response = await axios.get(`https://demo-xcju.onrender.com/api/images/${id}`);
             setImageById(response.data.imageUrl);
             // console.log(response.data);
 
@@ -94,7 +94,7 @@ const ImageUpload = () => {
             </div>
             {data.map((image) => (
                 <div key={image._id} style={{ margin: '10px', width: '200px' }}>
-                    <img src={`http://localhost:5000${image.imageUrl}`} alt="Uploaded" style={{ width: '200px' }}
+                    <img src={`https://demo-xcju.onrender.com${image.imageUrl}`} alt="Uploaded" style={{ width: '200px' }}
                         data-bs-toggle="modal" data-bs-target="#exampleModal" onClick={() => hanleShow(image._id)} />
                         {/* <button onClick={() => handleUpdate(image._id)}>Update Image</button> */}
                     <div style={{ marginTop: "20px" }}>
@@ -107,7 +107,7 @@ const ImageUpload = () => {
                         <div className="modal-dialog modal-dialog-centered">
                             <div className="modal-content">
                                 <div className="modal-body" style={{ display: "flex", justifyContent: "center", flexDirection: "column" }}>
-                                    <img src={`http://localhost:5000${imageById}`} alt="Uploaded" style={{ width: '400px' }}
+                                    <img src={`https://demo-xcju.onrender.com${imageById}`} alt="Uploaded" style={{ width: '400px' }}
                                     />
                                     <div style={{ marginTop: "20px" }}>
                                         {/* <input type="file" onChange={handleImage} /> */}
