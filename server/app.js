@@ -9,7 +9,7 @@ const app = express();
 // Middleware for parsing JSON
 app.use(express.json());
 const crossOrigin = {
-    origin: 'http://localhost:3000',
+    origin: 'https://demo-pink-three.vercel.app',
     credentials: true
 }
 app.use(cors(crossOrigin));
